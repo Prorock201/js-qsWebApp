@@ -6,10 +6,10 @@ window.QUESTIONNAIRE.Qb10 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 33;
+        this.startFrom = 42;
         this.options = [
-            'Рішення на мою користь',
-            'Рішення на користь іншой сторони',
+            'Так',
+            'Ні',
             'По-різному'
         ];
     };
@@ -35,7 +35,7 @@ window.QUESTIONNAIRE.Qb10 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">${Component.startFrom}. Яким був результат судового рішення по вашій справі чи справах (якщо їх було декілька)?</h2>
+                    <h2 class="qb-header">${Component.startFrom}. РІШЕННЯ СУДУ ЗА ВАШОЮ СПРАВОЮ БУЛО/БУЛИ НА ВАШУ КОРИСТЬ?</h2>
                     <div class="qb-content"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;

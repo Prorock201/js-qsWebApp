@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb11 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 34;
+        this.startFrom = 43;
         this.options = [
             'Так',
             'Ні'
@@ -34,7 +34,7 @@ window.QUESTIONNAIRE.Qb11 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">${Component.startFrom}. Чи берете Ви участь зараз у якомусь судовому провадженні?</h2>
+                    <h2 class="qb-header">${Component.startFrom}. ЧИ БЕРЕТЕ ВИ УЧАСТЬ ЗАРАЗ У ЯКОМУСЬ СУДОВОМУ ПРОВАДЖЕННІ?</h2>
                     <div class="qb-content"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;

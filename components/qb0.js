@@ -2,27 +2,24 @@
 
 window.QUESTIONNAIRE = window.QUESTIONNAIRE || {};
 
-window.QUESTIONNAIRE.Qb8 = (() => {
+window.QUESTIONNAIRE.Qb0 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 40;
+        this.startFrom = 7;
         this.options = [
-            'кримінальна',
-            'цивільна',
-            'адміністративна',
-            'господарська',
-            'про адміністративне правопорушення'
+            'Так',
+            'Ні'
         ];
     };
 
     Component.prototype.init = (answers) => {
-        let component = this.QUESTIONNAIRE.Qb8;
+        let component = this.QUESTIONNAIRE.Qb0;
         let elements = null;
         component.answers = answers;
         component.wrapper = document.querySelector( '.' + component.classes.wrapper );
         component.renderQb.call(null, component);
-        elements = component.wrapper.querySelectorAll(`input[type=checkbox][name=q${component.startFrom}]`);
+        elements = component.wrapper.querySelectorAll(`input[type=radio][name=q${component.startFrom}]`);
         elements.forEach(i => {
             i.onchange = component.checkFormValidation.bind(null, component);
         });
@@ -37,7 +34,7 @@ window.QUESTIONNAIRE.Qb8 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">${Component.startFrom}. ВИД ПРОВАДЖЕННЯ/СПРАВИ,В ЯКИХ ВИ ПРИЙМАЛИ ЧИ ПРИЙМАЄТЕ УЧАСТЬ ЗАРАЗ (МОЖЛИВО ВКАЗАТИ КІЛЬКА ВАРІАНТІВ):</h2>
+                    <h2 class="qb-header">${Component.startFrom}. ЧИ НАЛЕЖИТЕ ВИ ЗАРАЗ ЧИ В МИНУЛОМУ ДО ПРАЦІВНИКІВ СУДОВОЇ СИСТЕМИ (СУДДІ, ПРАЦІВНИКИ АПАРАТУ СУДУ)?</h2>
                     <div class="qb-content"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;
@@ -52,7 +49,7 @@ window.QUESTIONNAIRE.Qb8 = (() => {
             let input = document.createElement('input');
             let answer = document.createElement('span');
             optionContainer.classList.add('flex');
-            input.setAttribute('type', 'checkbox');
+            input.setAttribute('type', 'radio');
             input.setAttribute('name', `q${Component.startFrom}`);
             input.setAttribute('value', i + 1);
             answer.innerHTML = e;
@@ -64,23 +61,15 @@ window.QUESTIONNAIRE.Qb8 = (() => {
     };
 
     Component.prototype.checkFormValidation = (Component) => {
-        let answerOptions = Component.wrapper.querySelectorAll(`input[type=checkbox][name=q${Component.startFrom}]:checked`);
-        let answersValue = [];
-        answerOptions.forEach((e,i) => {
-            answersValue.push(e.value);
-        });
-        Component.answers[`q${Component.startFrom}`] = answersValue.join(',');
-        if (answersValue.length > 0) {
-            Component.wrapper.querySelector('.nextButton').removeAttribute('disabled');
-        } else {
-            Component.wrapper.querySelector('.nextButton').setAttribute('disabled', 'disabled');
-        }
+        let answerOption = Component.wrapper.querySelector(`input[type=radio][name=q${Component.startFrom}]:checked`);
+        Component.answers[answerOption.name] = answerOption.value;
+        Component.wrapper.querySelector('.nextButton').removeAttribute('disabled');
     };
 
     Component.prototype.gotToNextBlock = (Component) => {
         Component.wrapper.querySelector('.nextButton').removeEventListener('click', Component.gotToNextBlock.bind(null, Component));
         Component.wrapper.innerHTML = '';
-        QUESTIONNAIRE.Qb9.init(Component.answers);
+        QUESTIONNAIRE.Qb1.init(Component.answers);
     };
 
     return new Component();

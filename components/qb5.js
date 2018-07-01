@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb5 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 28;
+        this.startFrom = 37;
         this.options = [
             'адвокат/юрист',
             'прокурор',
@@ -35,7 +35,7 @@ window.QUESTIONNAIRE.Qb5 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">${Component.startFrom}. Чи належите Ви до наступних  категорій:</h2>
+                    <h2 class="qb-header">${Component.startFrom}. ЧИ НАЛЕЖИТЕ ВИ ДО НАСТУПНИХ КАТЕГОРІЙ?</h2>
                     <div class="qb-content"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;

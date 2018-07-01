@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb4 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 21;
+        this.startFrom = 27;
         this.tableCaption = [
             '',
             'повністю довіряю',
@@ -22,7 +22,10 @@ window.QUESTIONNAIRE.Qb4 = (() => {
             'Прокуратура',
             'Національна поліція',
             'Національне антикорупційне бюро',
-            'Місцеві органи влади (місцева рада, мер міста)'
+            'Місцеві органи влади (місцева рада, мер міста)',
+            'Політичні партії;',
+            'Громадські організації;',
+            'Засоби масової інформації (преса, телебачення, інформагентства)'
         ];
     };
 
@@ -47,7 +50,7 @@ window.QUESTIONNAIRE.Qb4 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">В якій мірі Ви довіряєте наступних органам:</h2>
+                    <h2 class="qb-header">В якій мірі Ви довіряєте наступних органам?</h2>
                     <div class="table-container"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;

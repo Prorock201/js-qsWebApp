@@ -6,13 +6,13 @@ window.QUESTIONNAIRE.Qb1 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 6;
+        this.startFrom = 8;
         this.options = [
-            'повністю довіряю українським судам',
-            'скоріше довіряю чим не довіряю',
-            'скоріше не довіряю ніж довіряю',
-            'зовсім не довіряю',
-            'важко сказати; не визначився'
+            'Повністю довіряю українським судам',
+            'Скоріше довіряю, чим не довіряю',
+            'Скоріше не довіряю,ніж довіряю',
+            'Зовсім не довіряю',
+            'Важко сказати,не визначився'
         ];
     };
 
@@ -37,7 +37,7 @@ window.QUESTIONNAIRE.Qb1 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">${Component.startFrom}. Яке з наведених нижче тверджень найбільш точно передає Ваше особисте ставлення до судової системи України:</h2>
+                    <h2 class="qb-header">${Component.startFrom}. ЯКЕ З НАВЕДЕНИХ НИЖЧЕ ТВЕРДЖЕНЬ НАЙБІЛЬШ ТОЧНО ПЕРЕДАЄ ВАШЕ ОСОБИСТЕ СТАВЛЕННЯ ДО СУДОВОЇ СИСТЕМИ УКРАЇНИ:</h2>
                     <div class="qb-content"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;

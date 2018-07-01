@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb7 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 30;
+        this.startFrom = 39;
         this.options = [
             'Ні я, ні мої близькі за останні 2 роки жодного разу не були учасниками судових проваджень',
             'Я особисто (мої близькі) за останні 2 роки один раз чи більше були є зараз учасниками судових проваджень'
@@ -34,7 +34,7 @@ window.QUESTIONNAIRE.Qb7 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">${Component.startFrom}. Чи був у вас досвід участі в судових провадженнях за останні 2 роки?</h2>
+                    <h2 class="qb-header">${Component.startFrom}. ЧИ НАЛЕЖИТЕ ВИ ДО НАСТУПНИХ КАТЕГОРІЙ (ОБЕРІТЬ ОДИН ВАРІАНТІВ):</h2>
                     <div class="qb-content"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;

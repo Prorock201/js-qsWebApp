@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb9 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 32;
+        this.startFrom = 41;
         this.options = [
             'Перша інстанція',
             'Апеляційна інстанція',
@@ -35,7 +35,7 @@ window.QUESTIONNAIRE.Qb9 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">${Component.startFrom}. Які суди розглядали ці справи(за Вашою участю)</h2>
+                    <h2 class="qb-header">${Component.startFrom}. ЯКІ СУДИ РОЗГЛЯДАЛИ ЦІ СПРАВИ (ЗА ВАШОЮ УЧАСТЮ)?</h2>
                     <div class="qb-content"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;
