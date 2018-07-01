@@ -1,0 +1,164 @@
+body {
+	height: 100%;
+}
+
+.qr-background {
+	background-color: orange;
+}
+
+#qrcode {
+  width: 256px;
+  height: 256px;
+  margin-top: 15px;
+  border: 13px solid #fff;
+}
+
+.qr-header {
+	width: 300px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.qr-header-h1 {
+	font-size: 70px;
+	font-weight: bold;
+}
+
+.qr-header-h2 {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.qr-content {
+	height: 100%;
+	justify-content: space-around;
+	width: 700px;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+.flex.welcome-content {
+	height: 100%;
+	width: 900px;
+	margin: 0 auto;
+	flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  font-size: 20px;
+}
+
+.welcome-content > div {
+	margin: 0 0 30px;
+	text-align: left;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: #2c3e50;
+}
+
+.welcome-content .welcome-content-header {
+  margin: 0 auto 30px;
+  font-size: 39px;
+}
+
+.nextButton.center {
+	margin: 0 auto;
+}
+
+.welcome-content .questionnaire-link {
+	cursor: pointer;
+	text-decoration: underline;
+	color: #3498db;
+}
+
+.questionnaireWrapper {
+	height: 100vh;
+	margin: -8px;
+}
+
+.qb {
+	width: 900px;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.qb li, .qb .flex {
+	margin: 0 0 10px;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+.qb li > div {
+	margin: 0 0 10px;
+}
+
+.qb  input[type="number"] {
+  width: 30px;
+  padding: 0 0 0 10px;
+}
+
+.qb-header, .table-container {
+	margin: 0 0 30px;
+}
+
+.nextButton {
+	width: 90px;
+	height: 30px;
+	background-color: #fff;
+	border: 2px solid #5AC8FA;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	color: #5AC8FA;
+	outline: none;
+}
+
+.nextButton:hover {
+	background-color: #5AC8FA;
+	color: #fff;
+}
+
+.nextButton[disabled], .nextButton[disabled]:hover {
+	background-color: #fff;
+	border-color: #ccc;
+	color: #ccc;
+	cursor: default;
+}
+
+.qb-content {
+	width: 100%;
+}
+
+.qb-content > div {
+	margin: 0 30px 30px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #BAEBFF;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #BAEBFF;
+}
+
+.qb.final-header {
+	font-size: 28px;
+	letter-spacing: 3px;
+	font-weight: bold;
+}
