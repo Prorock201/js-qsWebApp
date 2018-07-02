@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb2 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 9;
+        this.startFrom = 8;
         this.tableCaption = [
             '',
             'повністю погоджуюсь',

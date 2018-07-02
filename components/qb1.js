@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb1 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 8;
+        this.startFrom = 7;
         this.options = [
             'Повністю довіряю українським судам',
             'Скоріше довіряю, чим не довіряю',

@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb10 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 42;
+        this.startFrom = 41;
         this.options = [
             'Так',
             'Ні',

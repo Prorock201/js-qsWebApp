@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb8 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 40;
+        this.startFrom = 39;
         this.options = [
             'кримінальна',
             'цивільна',

@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb9 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 41;
+        this.startFrom = 40;
         this.options = [
             'Перша інстанція',
             'Апеляційна інстанція',

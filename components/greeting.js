@@ -22,15 +22,37 @@ window.onload = () => {
 					'Інше'
 	    	];
 	    	this.region = [
+					'Biнницька',
+					'Волинська',
 					'Днiпропетровська',
+					'Донецька',
+					'Жiтомирська',
+					'Закарпатська',
+					'Запорiзька',
+					'Iвано-Франкiвська',
+					'Киiвська',
+					'Кiровоградська',
+					'Луганська',
+					'Львiвська',
+					'Миколаiвська',
+					'Одеська',
+					'Полтавська',
+					'Рiвенська',
+					'Сумська',
+					'Тернопiльська',
+					'Харкiвська',
+					'Херсонська',
+					'Хмельницька',
 					'Черкаська',
-					'Волинська'
+					'Чернiвецька',
+					'Чернiгiвська',
+					'м. Київ'
 				];
 				this.init.call(null, this);
 	    };
 
 	    Component.prototype.init = (Component) => {
-	    	for (let i=1; i<=52; i++) {
+	    	for (let i=1; i<=51; i++) {
 	    		Component.answers[`q${i}`] = '';
 	    	}
 	    	Component.renderGreeting(Component);
@@ -54,8 +76,8 @@ window.onload = () => {
 								<div class="flex"><span><input type="radio" name="gender" value="1"><span>Чоловік</span></span></div>
 								<div class="flex"><input type="radio" name="gender" value="2"><span>Жінка</span></div>
 							</li>
-							<li><div>Вік: <input type="number" name="age" min="18" max="90" > років</div></li>
 							<li>
+								<div>Вік: </div>
 								<div class="flex"><span><input type="radio" name="age-group" value="1"><span>18-29</span></span></div>
 								<div class="flex"><span><input type="radio" name="age-group" value="2"><span>30-44</span></span></div>
 								<div class="flex"><span><input type="radio" name="age-group" value="3"><span>45-59</span></span></div>
@@ -97,19 +119,17 @@ window.onload = () => {
 
 	    Component.prototype.checkFormValidation = (Component) => {
 	    	let q1 = Component.wrapper.querySelector('input[type=radio][name=gender]:checked');
-	    	let q2 = Component.wrapper.querySelector('input[type=number][name=age]');
-	    	let q3 = Component.wrapper.querySelector('input[type=radio][name=age-group]:checked');
-	    	let q4 = Component.wrapper.querySelector('select[name=region] option:checked');
-	    	let q5 = Component.wrapper.querySelector('input[type=radio][name=location]:checked');
-	    	let q6 = Component.wrapper.querySelector('select[name=occupation] option:checked');
-	    	let enableButton = !!q1 && !!q2.value && !!q3 && q4.value != "0" && !!q5 && q6.value != "0";
+	    	let q2 = Component.wrapper.querySelector('input[type=radio][name=age-group]:checked');
+	    	let q3 = Component.wrapper.querySelector('select[name=region] option:checked');
+	    	let q4 = Component.wrapper.querySelector('input[type=radio][name=location]:checked');
+	    	let q5 = Component.wrapper.querySelector('select[name=occupation] option:checked');
+	    	let enableButton = !!q1 && !!q2 && q3.value != "0" && !!q4 && q5.value != "0";
 
 	    	Component.answers.q1 = q1 ? q1.value : null;
-	    	Component.answers.q2 = q2.value ? q2.value : null;
-	    	Component.answers.q3 = q3 ? q3.value : null;
-	    	Component.answers.q4 = q4.value != "0" ? q4.value : null;
-	    	Component.answers.q5 = q5 ? q5.value : null;
-	    	Component.answers.q6 = q6.value != "0" ? q6.value : null;
+	    	Component.answers.q2 = q2 ? q2.value : null;
+	    	Component.answers.q3 = q3.value != "0" ? q3.value : null;
+	    	Component.answers.q4 = q4 ? q4.value : null;
+	    	Component.answers.q5 = q5.value != "0" ? q5.value : null;
 
 	    	if (enableButton) {
 	    		Component.wrapper.querySelector('.nextButton').removeAttribute('disabled');

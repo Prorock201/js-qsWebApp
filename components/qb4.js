@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb4 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 27;
+        this.startFrom = 26;
         this.tableCaption = [
             '',
             'повністю довіряю',

@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb5 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 37;
+        this.startFrom = 36;
         this.options = [
             'адвокат/юрист',
             'прокурор',

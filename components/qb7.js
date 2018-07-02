@@ -6,7 +6,7 @@ window.QUESTIONNAIRE.Qb7 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 39;
+        this.startFrom = 38;
         this.options = [
             'Ні я, ні мої близькі за останні 2 роки жодного разу не були учасниками судових проваджень',
             'Я особисто (мої близькі) за останні 2 роки один раз чи більше були є зараз учасниками судових проваджень'
