@@ -9,6 +9,7 @@ window.onload = () => {
 	    const Component = function () {
 	    	this.wrapper = '';
 	    	this.baseUrl = '';
+	    	this.apiVersion = '/v2';
 	    	this.questionnaireUrl = '/questionnaire.html';
 	    	this.init.call(null, this);
 	    };
@@ -36,7 +37,7 @@ window.onload = () => {
 	    };
 
 	    Component.prototype.goToNextPage = (Component) => {
-	    	window.location = `${Component.baseUrl}${Component.questionnaireUrl}`;
+	    	window.location = `${Component.baseUrl}${Component.apiVersion}${Component.questionnaireUrl}`;
 	    };
 
 	    return new Component();
