@@ -2,24 +2,25 @@
 
 window.QUESTIONNAIRE = window.QUESTIONNAIRE || {};
 
-window.QUESTIONNAIRE.Qb6 = (() => {
+window.QUESTIONNAIRE.Qb9 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 37;
+        this.startFrom = 40;
         this.options = [
-            'Так',
-            'Ні'
+            'Перша інстанція',
+            'Апеляційна інстанція',
+            'Касаційна інстанція'
         ];
     };
 
     Component.prototype.init = (answers) => {
-        let component = this.QUESTIONNAIRE.Qb6;
+        let component = this.QUESTIONNAIRE.Qb9;
         let elements = null;
         component.answers = answers;
         component.wrapper = document.querySelector( '.' + component.classes.wrapper );
         component.renderQb.call(null, component);
-        elements = component.wrapper.querySelectorAll(`input[type=radio][name=q${component.startFrom}]`);
+        elements = component.wrapper.querySelectorAll(`input[type=checkbox][name=q${component.startFrom}]`);
         elements.forEach(i => {
             i.onchange = component.checkFormValidation.bind(null, component);
         });
@@ -34,7 +35,7 @@ window.QUESTIONNAIRE.Qb6 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">${Component.startFrom}. ЧИ МАЄТЕ ВИ ОСОБИСТО ДОСВІД УЧАСТІ У СУДОВИХ ПРОВАДЖЕННЯХ У ЯКОСТІ АДВОКАТА/ЮРИСТА ЧИ ПРОКУРОРА?</h2>
+                    <h2 class="qb-header">${Component.startFrom}. ЯКІ СУДИ РОЗГЛЯДАЛИ ЦІ СПРАВИ (ЗА ВАШОЮ УЧАСТЮ)?</h2>
                     <div class="qb-content"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;
@@ -46,40 +47,39 @@ window.QUESTIONNAIRE.Qb6 = (() => {
         let container = document.createElement('div');
         Component.options.forEach((e,i) => {
             let optionContainer = document.createElement('div');
+            let label = document.createElement('label');
             let input = document.createElement('input');
             let answer = document.createElement('span');
-            optionContainer.classList.add('flex');
-            input.setAttribute('type', 'radio');
+            input.setAttribute('type', 'checkbox');
             input.setAttribute('name', `q${Component.startFrom}`);
             input.setAttribute('value', i + 1);
             answer.innerHTML = e;
-            optionContainer.appendChild(input);
-            optionContainer.appendChild(answer);
+            optionContainer.appendChild(label);
+            label.appendChild(input);
+            label.appendChild(answer);
             container.appendChild(optionContainer);
         });
         document.querySelector(`.${Component.classes.wrapper} .${Component.classes.questionContent}`).appendChild(container);
     };
 
     Component.prototype.checkFormValidation = (Component) => {
-        let answerOption = Component.wrapper.querySelector(`input[type=radio][name=q${Component.startFrom}]:checked`);
-        Component.answers[answerOption.name] = answerOption.value;
-        Component.wrapper.querySelector('.nextButton').removeAttribute('disabled');
+        let answerOptions = Component.wrapper.querySelectorAll(`input[type=checkbox][name=q${Component.startFrom}]:checked`);
+        let answersValue = [];
+        answerOptions.forEach((e,i) => {
+            answersValue.push(e.value);
+        });
+        Component.answers[`q${Component.startFrom}`] = answersValue.join(',');
+        if (answersValue.length > 0) {
+            Component.wrapper.querySelector('.nextButton').removeAttribute('disabled');
+        } else {
+            Component.wrapper.querySelector('.nextButton').setAttribute('disabled', 'disabled');
+        }
     };
 
     Component.prototype.gotToNextBlock = (Component) => {
         Component.wrapper.querySelector('.nextButton').removeEventListener('click', Component.gotToNextBlock.bind(null, Component));
         Component.wrapper.innerHTML = '';
-        switch (Component.answers[`q${Component.startFrom}`]) {
-            case '1':
-                QUESTIONNAIRE.Qb8.init(Component.answers);
-                break;
-            case '2':
-                QUESTIONNAIRE.Qb7.init(Component.answers);
-                break;
-            default:
-                alert('Something went wrong!');
-                break;
-        }
+        QUESTIONNAIRE.Qb10.init(Component.answers);
     };
 
     return new Component();

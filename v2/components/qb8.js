@@ -49,15 +49,16 @@ window.QUESTIONNAIRE.Qb8 = (() => {
         let container = document.createElement('div');
         Component.options.forEach((e,i) => {
             let optionContainer = document.createElement('div');
+            let label = document.createElement('label');
             let input = document.createElement('input');
             let answer = document.createElement('span');
-            optionContainer.classList.add('flex');
             input.setAttribute('type', 'checkbox');
             input.setAttribute('name', `q${Component.startFrom}`);
             input.setAttribute('value', i + 1);
             answer.innerHTML = e;
-            optionContainer.appendChild(input);
-            optionContainer.appendChild(answer);
+            optionContainer.appendChild(label);
+            label.appendChild(input);
+            label.appendChild(answer);
             container.appendChild(optionContainer);
         });
         document.querySelector(`.${Component.classes.wrapper} .${Component.classes.questionContent}`).appendChild(container);

@@ -73,23 +73,23 @@ window.onload = () => {
 						<ol>
 							<li>
 								<div>Стать:</div>
-								<div class="flex"><span><input type="radio" name="gender" value="1"><span>Чоловік</span></span></div>
-								<div class="flex"><input type="radio" name="gender" value="2"><span>Жінка</span></div>
+								<div><label><input type="radio" name="gender" value="1"><span>Чоловік</span></label></div>
+								<div><label><input type="radio" name="gender" value="2"><span>Жінка</span></label></div>
 							</li>
 							<li>
 								<div>Вік: </div>
-								<div class="flex"><span><input type="radio" name="age-group" value="1"><span>18-29</span></span></div>
-								<div class="flex"><span><input type="radio" name="age-group" value="2"><span>30-44</span></span></div>
-								<div class="flex"><span><input type="radio" name="age-group" value="3"><span>45-59</span></span></div>
-								<div class="flex"><span><input type="radio" name="age-group" value="4"><span>60+ (інтерв’ює закодуйте вік)</span></span></div>
+								<div><label><input type="radio" name="age-group" value="1"><span>18-29</span></label></div>
+								<div><label><input type="radio" name="age-group" value="2"><span>30-44</span></label></div>
+								<div><label><input type="radio" name="age-group" value="3"><span>45-59</span></label></div>
+								<div><label><input type="radio" name="age-group" value="4"><span>60+ (інтерв’ює закодуйте вік)</span></label></div>
 							</li>
 							<li><div>РЕГІОН/ОБЛАСТЬ: <select name="region"></select></li>
 							<li>
 								<div>ТИП НАСЕЛЕНОГО ПУНКТУ</div>
-								<div class="flex"><input type="radio" name="location" value="1">Обласний центр</div>
-								<div class="flex"><input type="radio" name="location" value="2">Місто в області</div>
-								<div class="flex"><input type="radio" name="location" value="3">СМТ</div>
-								<div class="flex"><input type="radio" name="location" value="4">Село</div>
+								<div><label><input type="radio" name="location" value="1">Обласний центр</label></div>
+								<div><label><input type="radio" name="location" value="2">Місто в області</label></div>
+								<div><label><input type="radio" name="location" value="3">СМТ</label></div>
+								<div><label><input type="radio" name="location" value="4">Село</label></div>
 							</li>
 							<li><span>ВАШ СТАТУС (ЗАЙНЯТІСТЬ): <select name="occupation"></select></li>
 						</ol>

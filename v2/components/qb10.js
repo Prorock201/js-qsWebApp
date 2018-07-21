@@ -2,19 +2,20 @@
 
 window.QUESTIONNAIRE = window.QUESTIONNAIRE || {};
 
-window.QUESTIONNAIRE.Qb7 = (() => {
+window.QUESTIONNAIRE.Qb10 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 38;
+        this.startFrom = 41;
         this.options = [
-            'Ні я, ні мої близькі за останні 2 роки жодного разу не були учасниками судових проваджень',
-            'Я особисто (мої близькі) за останні 2 роки один раз чи більше були є зараз учасниками судових проваджень'
+            'Так',
+            'Ні',
+            'По-різному'
         ];
     };
 
     Component.prototype.init = (answers) => {
-        let component = this.QUESTIONNAIRE.Qb7;
+        let component = this.QUESTIONNAIRE.Qb10;
         let elements = null;
         component.answers = answers;
         component.wrapper = document.querySelector( '.' + component.classes.wrapper );
@@ -34,7 +35,7 @@ window.QUESTIONNAIRE.Qb7 = (() => {
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
                 `<div class="qb">
-                    <h2 class="qb-header">${Component.startFrom}. ЧИ НАЛЕЖИТЕ ВИ ДО НАСТУПНИХ КАТЕГОРІЙ (ОБЕРІТЬ ОДИН ВАРІАНТІВ):</h2>
+                    <h2 class="qb-header">${Component.startFrom}. РІШЕННЯ СУДУ ЗА ВАШОЮ СПРАВОЮ БУЛО/БУЛИ НА ВАШУ КОРИСТЬ?</h2>
                     <div class="qb-content"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;
@@ -46,15 +47,16 @@ window.QUESTIONNAIRE.Qb7 = (() => {
         let container = document.createElement('div');
         Component.options.forEach((e,i) => {
             let optionContainer = document.createElement('div');
+            let label = document.createElement('label');
             let input = document.createElement('input');
             let answer = document.createElement('span');
-            optionContainer.classList.add('flex');
             input.setAttribute('type', 'radio');
             input.setAttribute('name', `q${Component.startFrom}`);
             input.setAttribute('value', i + 1);
             answer.innerHTML = e;
-            optionContainer.appendChild(input);
-            optionContainer.appendChild(answer);
+            optionContainer.appendChild(label);
+            label.appendChild(input);
+            label.appendChild(answer);
             container.appendChild(optionContainer);
         });
         document.querySelector(`.${Component.classes.wrapper} .${Component.classes.questionContent}`).appendChild(container);
@@ -69,17 +71,7 @@ window.QUESTIONNAIRE.Qb7 = (() => {
     Component.prototype.gotToNextBlock = (Component) => {
         Component.wrapper.querySelector('.nextButton').removeEventListener('click', Component.gotToNextBlock.bind(null, Component));
         Component.wrapper.innerHTML = '';
-        switch (Component.answers[`q${Component.startFrom}`]) {
-            case '1':
-                QUESTIONNAIRE.End.init(Component.answers);
-                break;
-            case '2':
-                QUESTIONNAIRE.Qb8.init(Component.answers);
-                break;
-            default:
-                alert('Something went wrong!');
-                break;
-        }
+        QUESTIONNAIRE.Qb11.init(Component.answers);
     };
 
     return new Component();

@@ -19,7 +19,6 @@ window.onload = () => {
 	    	Component.baseUrl = window.location.origin;
 	    	Component.renderWelcomePage(Component);
 	    	Component.wrapper.querySelector('.nextButton').addEventListener('click', Component.goToNextPage.bind(null, Component));
-	    	Component.wrapper.querySelector('.questionnaire-link').addEventListener('click', Component.goToNextPage.bind(null, Component));
 	    };
 
 	    Component.prototype.classes = {

@@ -2,11 +2,11 @@
 
 window.QUESTIONNAIRE = window.QUESTIONNAIRE || {};
 
-window.QUESTIONNAIRE.Qb2 = (() => {
+window.QUESTIONNAIRE.Qb12 = (() => {
 
     const Component = function () {
         this.answers = null;
-        this.startFrom = 8;
+        this.startFrom = 43;
         this.tableCaption = [
             '',
             'повністю погоджуюсь',
@@ -16,11 +16,11 @@ window.QUESTIONNAIRE.Qb2 = (() => {
             'важко сказати; не визначився'
         ];
         this.questions = [
-            'Рішення, які приймаються судами, є справедливими, обґрунтованими та законними',
+            'Рішення, які приймаються судами, є справедливими та законними',
             'Судді мають належну кваліфікацію',
-            'Суди та судді є незалежними, на їх рішення не впливають інші органи влади, політики чи посадові особи',
-            'Відсутні сумніви в тому, що в судах всі рівні перед законом і нікому  не надається перевага через його майновий стан, посади, родинні зв’язки тощо',
-            'Умови роботи судів (графіки розгляду справ, стан приміщень тощо) є комфортними і зручними для учасників судових  проваджень',
+            'Суди та судді є незалежними, на їх рішення не впливають інші органи влади політики чи посадові особи',
+            'Відсутні сумніви в тому, що в судах всі рівні перед законом і нікому не надається перевага через його майновий стан, посади, родинні зв’язки тощо',
+            'Умови роботи судів (графіки розгляду справ, стан приміщень тощо) є комфортними і зручними для учасників судових проваджень',
             'Судові процедури є простими та ефективними',
             'Відсутні суттєві перешкоди для звернення до суду',
             'Справи розглядаються без необґрунтованих затримок протягом розумного строку',
@@ -29,7 +29,7 @@ window.QUESTIONNAIRE.Qb2 = (() => {
     };
 
     Component.prototype.init = (answers) => {
-        let component = this.QUESTIONNAIRE.Qb2;
+        let component = this.QUESTIONNAIRE.Qb12;
         let elements = null;
         component.answers = answers;
         component.wrapper = document.querySelector( '.' + component.classes.wrapper );
@@ -48,8 +48,8 @@ window.QUESTIONNAIRE.Qb2 = (() => {
 
     Component.prototype.renderQb = (Component) => {
         const qbTemplate = 
-                `<div class="qb">
-                    <h2 class="qb-header">Чи погоджуєтесь Ви з наступними твердженнями? (зробіть відмітку у кожному рядку)</h2>
+                `<div class="qb-table">
+                    <h2 class="qb-header">ЯКЩО ПІДСУМУВАТИ ВАШІ ВРАЖЕННЯ ВІД УЧАСТІ У СУДОВИХ ПРОВАДЖЕННЯХ ЗА ОСТАННІ РОКИ,ЧИ ПОГОДЖУЄТЕСЬ ВИ З НАСТУПНИМИ ТВЕРДЖЕННЯМИ:</h2>
                     <div class="table-container"></div>
                     <button class="nextButton" disabled>ДАЛІ</button>
                 </div>`;
@@ -74,12 +74,14 @@ window.QUESTIONNAIRE.Qb2 = (() => {
             tr.appendChild(tdQuestion);
             for (let z = 5; z >= 1; z--) {
                 let td = document.createElement('td');
+                let label = document.createElement('label');
                 let input = document.createElement('input');
                 td.setAttribute('align', 'center');
                 input.setAttribute('type', 'radio');
                 input.setAttribute('name', `q${question}`);
                 input.setAttribute('value', z);
-                td.appendChild(input);
+                label.appendChild(input);
+                td.appendChild(label);
                 tr.appendChild(td);
             }
             table.appendChild(tr);
@@ -106,7 +108,7 @@ window.QUESTIONNAIRE.Qb2 = (() => {
     Component.prototype.gotToNextBlock = (Component) => {
         Component.wrapper.querySelector('.nextButton').removeEventListener('click', Component.gotToNextBlock.bind(null, Component));
         Component.wrapper.innerHTML = '';
-        QUESTIONNAIRE.Qb4.init(Component.answers);
+        QUESTIONNAIRE.End.init(Component.answers);
     };
 
     return new Component();
