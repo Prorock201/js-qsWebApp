@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Довіра до суду</title>
+</head>
+<body>
+	<script>
+	'use strict';
+
+	window.onload = () => {
+		window.QUESTIONNAIRE = window.QUESTIONNAIRE || {};
+		window.QUESTIONNAIRE.version = 2;
+		location.replace(`${location.origin}/v${window.QUESTIONNAIRE.version}${location.pathname}`);
+	}
+
+	</script>
+</body>
+</html>
